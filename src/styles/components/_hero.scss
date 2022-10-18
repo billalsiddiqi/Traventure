@@ -1,0 +1,80 @@
+@use '../essentials/variables' as *;
+@use '../essentials/mixins' as *;
+
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    .hero {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .navbar {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 40px 40px;
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 999;
+        @include breakpoint-down(small){
+            padding: 35px 5px;
+        }
+        @include breakpoint-up(large) {
+            max-width: 1400px;
+        }
+        .logo {
+            img {
+                width: 150px;
+                @include breakpoint-up(xxlarge) {
+                    width: 200px;
+                }
+            }
+        }
+        .nav {
+            ul {
+                display: flex;
+                li {
+                   color: $white;
+                   font-weight: 100;
+                   font-size: 1.3rem;
+                   margin-left: 25px;
+                   cursor: pointer;
+                   @include breakpoint-up(xxlarge) {
+                    font-size: 1.5rem;
+                   }
+               }
+            }
+        }
+    }
+    .headline {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        h1 {
+            font-size: 6rem;
+            color: $white;
+            font-weight: bold;
+            text-transform: capitalize;
+            text-align: center;
+            @include breakpoint-down(medium) {
+                font-size: 5rem;
+            }
+            @include breakpoint-up(xxlarge) {
+                font-size: 8rem;
+            }
+            .italic {
+                font-style: italic;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
